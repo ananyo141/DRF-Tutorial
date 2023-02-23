@@ -1,0 +1,12 @@
+# Cache files
+__pycache__/
+
+# Python virtual environment
+.venv/
+
+# Migrations file 
+# Version control when stable and deployed
+migrations/
+
+# Testing Database
+db.sqlite3
