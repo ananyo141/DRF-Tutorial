@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-imvp867_d4o6v@%d(ue1c_^1+qknucdl4x5*ky2s-28v)$b3rw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # apps
     "rest_framework",
+    "corsheaders",
     "snippets",
 ]
 
@@ -48,6 +49,10 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    # CORS #
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    ########
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -57,6 +62,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 ROOT_URLCONF = "tutorial.urls"
 
 TEMPLATES = [
